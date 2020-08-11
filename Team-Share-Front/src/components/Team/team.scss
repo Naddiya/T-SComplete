@@ -1,0 +1,107 @@
+@import 'src/styles/_vars.scss';
+
+.team {
+    width: 70%;
+    margin: auto;
+
+    &-title {
+        font-weight:700;
+        text-align: center;
+        font-size: 2.5em;
+        color: $dark-cerulean;
+        padding: 0.5rem auto;
+        margin-bottom: 3rem;
+    }
+
+    &-members {
+        display: flex;
+        justify-content: space-around;
+        padding: 4em;
+    }
+
+    &-image {
+        border: none;
+        border-radius: 50%; 
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+        box-shadow:0 0 2em grey;
+    }
+
+    &-member {
+        margin-top:0.5rem;
+        text-align: center;
+        transition: .2s;
+        padding: 2em;
+
+        &-name {
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+
+        &-role {
+            font-size: 1em;
+            font-weight:400;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+            background-color: darken($gainsboro, 10%);
+        }
+    }
+
+}
+
+@media (max-width: 768px){
+    .team {
+        width: 100%;
+        &-title {
+        text-align: center;
+        font-size: 1.5em;
+        padding: 0;
+        margin-bottom: 1rem;
+        }
+        &-members {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 0.5rem;
+        }
+        &-image {
+            // border: none;
+            border-radius: 50%; 
+            overflow: hidden;
+            width: 70px;
+            height: 70px;
+        }
+        &-member {
+            text-align: center;
+            transition: .1s;
+            padding: 0;
+            margin-bottom:1rem;
+            &-name {
+                font-size: 0.8em;
+                margin:0;
+            }
+            &-role {
+                font-size: 0.6em;
+                margin-bottom:2rem;
+            }
+            &:hover {
+                transform: scale(1.2);
+                background-color: darken($gainsboro, 10%);
+            }
+        }
+    }
+}
+
+
+@media (max-width: 425px) {
+    .team-image {
+        // border: none;
+        border-radius: 50%; 
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+    }
+
+}

@@ -1,0 +1,64 @@
+@import 'src/styles/_vars.scss';
+
+
+.footer {
+  background-color: $eerie-black;
+  margin:1rem;
+  border-radius:5px;
+  &-upper {
+    display: flex;
+    color: $gainsboro;
+    & h3 {
+      font-weight:700;
+      font-size:1.5em;
+      margin-left:0.6rem;
+      margin-bottom:1.4rem;
+    }
+    &-links, &-contacts {
+      padding:0.5rem;
+      & li {
+        margin:0.3rem;
+        font-size: 1.1em;
+      }
+      & a {
+        font: size 1.1rem;
+        margin:0.3rem;
+      }
+      }
+    &-contacts a {
+    font-size: 1.5rem;
+  
+    }
+  }
+  &-bottom {
+    color: $gainsboro;
+    text-align:center;
+    padding-bottom:0.5rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+    margin:0;
+    border-radius:0;
+      &-upper {
+        & h3 {
+          font-size:1em;
+          margin: 0.5rem 0 0.5rem 0.5rem;
+        }
+      &-contacts {
+        padding:1rem;
+        font-size:1.2em;
+      }
+      &-links {
+        display:none;
+        }
+      }
+      &-bottom {
+      text-align:center;
+      padding-bottom:0.5rem;
+      font-size:0.6em;
+    }
+  }
+}

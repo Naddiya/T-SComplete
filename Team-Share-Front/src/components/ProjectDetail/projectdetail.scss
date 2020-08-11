@@ -1,0 +1,194 @@
+@import 'src/styles/_vars.scss';
+
+
+.project {
+  height:100% !important;
+
+  &-title, &-presentation, &-team, &-description {
+    padding : 2rem;
+    & h1 {
+      font-size: 2em;
+      font-weight: 700;
+      text-align : center;
+      color: $easy-blue;
+      padding-bottom:1rem;
+      // border-bottom : solid lightgrey 1px;
+    }
+    & p {
+      margin:1rem;
+      text-align:center;
+      font-size: 1.5em;
+    }
+  }
+
+  &-title-likeCount {
+    text-align:center;
+    color: $links;
+    margin:2rem;
+    font-size:1.5em;
+  }
+
+
+
+  &-presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-content{
+      width:90%;
+      align-self: flex-end;
+      &-text {
+        font-size:1.2em !important;
+        line-height:1.2em !important;
+        font-weight:400;
+      }
+      &-icons, &-text, &-progress {
+        width: 80%;
+        margin-top: 5rem;
+      }
+      & i {
+        font-size:2em;
+        margin-right:0.5rem
+      }
+      &-text {
+        font-size:1.5em;
+      }
+    }
+    &-avatar {
+      max-width:80%;
+      padding:0.6rem;
+      border-radius: 25px;
+    }
+  }
+
+  &-description {
+    & h1 {
+      font-weight: 700;
+    }
+    &-text {
+      font-weight:400;
+      margin: 4rem 0;
+      padding: 1rem;
+      font-size: 1em !important;
+      text-align: left !important;
+    }
+    &-actions {
+      font-size: 1.5em;
+      margin: 3rem auto;
+      display: flex;
+      flex-direction:row;
+      justify-content:space-between;
+      color: $links;
+      & a:hover {
+        color: darken($links, 20%);
+      }
+    }
+  }
+
+  &-comments {
+      border-top : solid grey 1px;
+      margin-bottom: 4rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+  .project {
+    width:85% !important;
+    margin:auto !important;
+      &-title, &-presentation, &-description, &-team {
+      padding : 0;
+      margin: 0;
+      // width:100% !important;
+      & p {
+        font-size: 0.9em;
+        margin:.5rem;
+      }
+
+    }
+    &-title {
+      & h1 {
+        font-size: 1.3em !important;
+     }
+     &-likeCount {
+       margin: 0;
+       font-size: 0.8em !important;
+     }
+    }
+    &-team {
+      width: auto !important;
+      margin:auto !important;
+      & h1 {
+        font-size: 600 !important;
+        font-size: 1em !important;
+        margin:0.5rem;
+        padding-bottom:0.5rem;
+      }
+      & .team-members {
+        padding:0;
+        margin:0.1rem;
+        font-size:0.7em !important;
+      }
+      & .team-member {
+        padding:0;
+        margin:0;
+        & img {
+        display:none;
+       }
+       & h3, & p {
+         font-size:0.8em !important;
+       }
+    }
+    }
+  
+    &-presentation {
+      display: block;
+      &-content{
+        width:100%;
+        &-icons, &-text, &-progress {
+          width:100%;
+          margin-top: 1rem;
+        }
+        & i {
+          font-size:2em;
+          margin-right:0.5rem
+        }
+        &-text {
+          font-size:0.8em !important;
+        }
+      }
+      &-avatar {
+        display:none;
+      }
+    }
+  
+    &-description {
+      & h1 {
+        margin-top:1rem;
+        font-size:1em;
+        padding-bottom:0.5rem;
+      }
+      &-text {
+        text-align: left !important;
+        font-size: 0.7em !important;
+        margin:0;
+        padding:0;
+      }
+      &-files {
+        display:none;
+      }
+      &-actions {
+        padding:0 1.5rem;
+        font-weight: 600;
+        font-size: 1.2em;
+        flex-direction:column;
+        text-align:center;
+        & svg {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+  }
+}

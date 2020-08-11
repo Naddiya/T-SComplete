@@ -1,0 +1,62 @@
+@import 'src/styles/_vars.scss';
+
+
+.projects {
+     background-color: #FFF;
+    &-title {
+        text-align:center;
+        font-weight: 700;
+        font-size: 2.5em;
+        padding: 1.5em;
+        color: $dark-cerulean;
+    }
+}
+.ui {
+    &.cards {
+        justify-content: center;
+        margin-bottom: 10%;
+        &>.card {
+            margin:2rem !important;
+        }
+    }
+}
+
+.extra.content {
+    text-align:center !important;
+    color: $links !important;
+}
+
+.header, .meta, .description {
+    margin: 1rem 0 !important;
+    font-size: 1.1em !important;
+}
+
+
+
+@media (max-width: 425px) {
+    .projects {
+        &-title {
+            font-size: 1.5em;
+            padding: 1em;
+        }
+        &-container {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+    }
+    .ui {
+        &.cards {
+        margin: 0 2rem;
+            &>.card {
+                &>.extra {
+                text-align:center !important;
+                }
+            }
+        }
+    }
+    .header, .meta, .description {
+        font-size: 1em !important;
+        margin:auto;
+    }
+    
+}

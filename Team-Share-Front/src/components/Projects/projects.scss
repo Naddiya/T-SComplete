@@ -1,0 +1,96 @@
+@import 'src/styles/_vars';
+
+.project-container {
+    width: 70%;
+    margin:auto;
+}
+
+.ui.selection.dropdown {
+    margin: 1rem 0 !important;
+}
+
+.ui.icon.input {
+    margin:1rem 0 !important;
+    width: 100% !important;
+}
+
+.radio {
+    margin-top:2rem;
+    display:flex;
+    justify-content: space-around;
+        &-left, &-right {
+            display:flex;
+        }
+        &-label {
+            margin-left:0.5rem;
+            font-weight: 500;
+            font-size:1.1em;
+        }
+}
+
+.item-follow {
+    font-weight: 400;
+    float:right;
+    color: #000;
+    vertical-align: baseline;
+    font-size: 1.5em;
+    &>svg {
+        margin-right: .6em;
+    }
+}
+
+.ui.items  {
+    & > .item {
+        & > .content {
+            & > a.header {
+                font-size:1.5em !important;
+            }
+        }
+    }
+}
+
+.description {
+    font-size: 1.5em;
+}
+
+@media (max-width:768px) {
+
+    .project-container {
+        width: 80%;
+        margin: 0 auto;
+        padding:0;
+        &-divider2 {
+            margin:0;
+        }
+    }
+
+    .ui.selection.dropdown {
+        margin: 0.2rem 0 !important;
+    }
+
+    .radio {
+            justify-content: space-around;
+            &
+            &-label {
+                margin-left:0.1rem !important;
+                font-size:0.8em;
+            }
+    }
+
+    .item-follow {
+        width:90%;
+        font-weight: 400;
+        float:right;
+        color: #000;
+        vertical-align: start;
+        font-size: 1.5em;
+        
+        &>svg {
+            margin-right: .6em;
+        }
+    }
+
+    .description {
+    font-size: 1.5em;
+    }
+}

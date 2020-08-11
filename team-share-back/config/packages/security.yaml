@@ -1,0 +1,29 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    #cette section définit qui fournit les utilisateurs , notre cas nous souhaiterons avoir des données de la BDD
+    providers:
+        teamshare_provider:
+            entity:
+                class: App\Entity\User
+                property: username #note je peux specifier le champs que je souhaite pour m'authentifier
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        # cette section firewalls / main est destiné a notre application
+        # elle definie si notre utilisateur peux etre anonyme ou non 
+        # et surtout elle va definir par quel biais je peux me connecter a mon application ( form ou HTTP basic)                    
+        main:          
+            anonymous: true
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

@@ -1,0 +1,153 @@
+@import 'src/styles/_vars';
+
+.project {
+    width: 70%;
+    margin: 4rem auto;
+
+
+    & img {
+        border-radius:15px;
+        box-shadow: 0 0 2rem gray;
+    }
+
+    &-title, &-presentation, &-team, &-description {
+        font-weight: 700;
+        font-size:1.5em;
+    }
+
+    &-title {
+        font-weight: 700;
+        font-size:1.5em;
+        color: $dark-cerulean;
+        text-align: center;
+        margin: 1rem !important;
+    }
+
+    &-heading {
+        text-align: center;
+        margin-bottom: 4rem;
+        color: $dark-cerulean;
+        &-title {
+            font-weight: 700;
+            font-size:2em;
+        }
+    }
+
+    &-intro {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+        &-inputs {
+            .input-title {
+                font-size: 1.2em;
+                font-weight: 600;
+                color: $dark-cerulean;
+            }
+        }
+    }
+
+    &-filter {
+        padding: 3rem;
+        display:flex;
+        justify-content:space-around;
+        margin:auto;
+        & h3 {
+           text-align:center;
+           font-weight:700;
+           font-size:1.7rem;
+           color: $dark-cerulean;
+        }
+        
+    }
+
+    &-links-validation {
+        margin-left: 2rem;
+        & label {
+            width:300px;
+        }
+    }
+
+    .submit {
+        margin-left:2rem;
+    }
+}
+
+
+
+// RESPONSIVE 
+
+
+@media (max-width: 768px) {
+
+    .project {
+        img {
+            display:none !important;
+        }
+        &-heading {
+            margin-top: 3rem;
+            margin-bottom:0;
+        }
+        &-intro {
+            margin-bottom: 0;
+            &-inputs {
+                font-size:0.8em;
+                margin:0;
+            }
+        }
+    
+
+    &-intro {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+        &-inputs {
+            .input-title {
+                margin:0.5rem;
+                font-size: 1.2em;
+                font-weight: 600;
+                color: $dark-cerulean;
+            }
+        }
+    }
+
+    &-filter {
+        padding: 0;
+        display:block;
+        justify-content:space-around;
+        margin:auto;
+        & h3 {
+           text-align:center;
+           font-weight: 700;
+           font-size:0.9rem;
+           color: $dark-cerulean;
+        }
+        
+    }
+
+    &-description-title {
+        font-size:1em;
+        font-weight:600;
+    }
+
+    &-links-validation {
+        margin-left: 0;
+        & label {
+            width:300px;
+        }
+    }
+
+    .ui.blue.button.submit {
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 1024px) {
+    .project {
+        img {
+            display:none !important;
+        }
+    }
+}
+}
