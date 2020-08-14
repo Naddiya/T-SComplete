@@ -28,7 +28,7 @@ class Page extends React.Component {
 
 
   componentDidMount() {
-    axios.get('http://localhost:8000/project/index')
+    axios.get('http://95.142.160.243/team-share-back/public/index.php/project/index')
       .then((response) => {
         let homeprojects = response.data;
         this.setState({ projects: homeprojects });
@@ -37,7 +37,7 @@ class Page extends React.Component {
         console.log(error);
       });
 
-    axios.get('http://localhost:8000/techno/index')
+    axios.get('http://91.171.100.233/techno/index')
       .then((response) => {
         let profiletechnos = response.data;
         this.setState({ technos: profiletechnos });

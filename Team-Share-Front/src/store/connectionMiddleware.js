@@ -4,6 +4,7 @@ import { DO_SUBSCRIBE, DO_CONNECT, DO_DISCONNECT, changeToken, giveProfileInfos 
 
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
+    const baseUrl = "http://95.142.160.243/team-share-back/public/index.php";
     const headers = {
         'Access-Control-Allow-Origin': "*",
         'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ const connectionMiddleware = store => next => (action) => {
             }
             headers,
                 console.log(dataSubs);
-            axios.post('https://localhost:8000/user/register', dataSubs, headers)
+            axios.post(`${baseUrl}/user/register`, dataSubs, headers)
                 .then((response) => {
                     console.log(response);
                 })
@@ -35,7 +36,7 @@ const connectionMiddleware = store => next => (action) => {
             }
             headers,
                 console.log(dataConnect);
-            axios.post('http://127.0.0.1/login', dataConnect, headers)
+            axios.post(`${baseUrl}/login`, dataConnect, headers)
                 .then((response) => {
                     console.log(response);
                     let token = response.data.token;
@@ -47,7 +48,7 @@ const connectionMiddleware = store => next => (action) => {
                     }
                     console.log(params);
 
-                    axios.post('http://127.0.0.1/user/myprofile', params)
+                    axios.post(`${baseUrl}/user/myprofile`, params)
                         .then((response) => {
                             const persoInfos = response.data[0];
                             console.log(persoInfos);
@@ -66,7 +67,7 @@ const connectionMiddleware = store => next => (action) => {
                 token: state.token,
             }
             headers,
-                axios.post('http://127.0.0.1/logout', dataDc, headers)
+                axios.post(`${baseUrl}/logout`, dataDc, headers)
                     .then((response) => {
                         console.log(response);
                         store.dispatch(changeToken(''));
