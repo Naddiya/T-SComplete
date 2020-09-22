@@ -4,7 +4,7 @@ import { DO_SUBSCRIBE, DO_CONNECT, DO_DISCONNECT, changeToken, giveProfileInfos 
 
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
-    const baseUrl = "http://95.142.160.243/team-share-back/public/index.php";
+    const baseUrl = "http://95.142.160.243/team-share-back/public/";
     const headers = {
         'Access-Control-Allow-Origin': "*",
         'Content-Type': 'application/json',
