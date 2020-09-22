@@ -37,7 +37,7 @@ class Page extends React.Component {
         console.log(error);
       });
 
-    axios.get('http://95.142.160.243/team-share-back/public/project/index/techno/index')
+    axios.get('http://95.142.160.243/team-share-back/public/techno/index')
       .then((response) => {
         let profiletechnos = response.data;
         this.setState({ technos: profiletechnos });
@@ -46,7 +46,7 @@ class Page extends React.Component {
         console.log(error);
       });
 
-    axios.get('http://95.142.160.243/team-share-back/public/project/index/tag/index')
+    axios.get('http://95.142.160.243/team-share-back/public/tag/index')
       .then((response) => {
         let tag = response.data;
         this.setState({ tag: tag });
@@ -54,7 +54,7 @@ class Page extends React.Component {
       .catch((error) => {
         console.log(error);
       });
-    axios.get('http://95.142.160.243/team-share-back/public/project/index/skill/index')
+    axios.get('http://95.142.160.243/team-share-back/public/skill/index')
       .then((response) => {
         let skills = response.data;
         this.setState({ skills: skills });
