@@ -55,10 +55,10 @@
 
 .team-pic {
     margin: auto;
-    width: 45%;
-    height: 45%;
+    width: 20%;
     border-radius: 15px;
     box-shadow: 0 0 2em grey;
+    transform : rotate(-90deg);
 }
 
 @media (max-width: 1024px){

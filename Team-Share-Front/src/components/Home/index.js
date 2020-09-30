@@ -12,8 +12,8 @@ const Home = ({ token }) => (
     <main className="main-container">
 
       <div className="welcome">
-        <h1 className="welcome-title">Bienvenue sur Team-Share !</h1>
-        <p className="welcome-subtitle">Plateforme d'appel à projets collaboratifs en France.</p>
+        <h1 className="welcome-title">Vous êtes sur Team-Share</h1>
+        <p className="welcome-subtitle">Plateforme d'appel à projets collaboratifs.</p>
 
         <div className="welcome-buttons">
           {token.length > 3 && <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>}
@@ -21,7 +21,7 @@ const Home = ({ token }) => (
           <button className="welcome-buttons-button">En savoir plus</button>
         </div>
       </div>
-      <img className="team-pic" alt="image-team" src="src/assets/teamPic.png" />
+      <img className="team-pic" src="src/assets/krakenimages.jpg" title="Photo by krakenimages on Unsplash" alt="quatre personnes agissant en équipe" />
     </main>
 
     <svg className="wave" viewBox="0 0 1170 126" xmlns="http://www.w3.org/2000/svg">
