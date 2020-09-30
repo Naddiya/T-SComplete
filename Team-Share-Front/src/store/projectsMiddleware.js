@@ -13,7 +13,7 @@
 //       let data = {
 //         projects: state.projects,
 //       }
-//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/tag/${state.tags}`)
+//   axios.get(`http://95.142.160.243/team-share-back/public/tag/${state.tags}`)
 //   .then((response) => {
 //       const projectsTag = response;
 //       this.setState({projects: projectsTag});
@@ -23,7 +23,7 @@
 //       console.log(error);
 //   });
 //     case CHANGE_TECHNOS :
-//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/techno/${state.technos}`)
+//   axios.get(`http://95.142.160.243/team-share-back/public/techno/${state.technos}`)
 //   .then((response) => {
 //       let projectsTechnos = response;
 //       this.setState({projects: projectsTechnos});
@@ -33,7 +33,7 @@
 //       console.log(error);
 //   });
 //   case  CHANGE_SKILLS :
-//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/skill/${state.skills}`)
+//   axios.get(`http://95.142.160.243/team-share-back/public/skill/${state.skills}`)
 //   .then((response) => {
 //       let ProjectsSkill = response;
 //       this.setState({projects: ProjectsSkill});

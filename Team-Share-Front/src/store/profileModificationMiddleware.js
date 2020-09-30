@@ -31,7 +31,7 @@ const profileModificationMiddleware = store => next => (action) => {
         'cache-control': 'no-cache',
       }
       console.log(data);
-      axios.post('https://localhost:8000/T-SComplete/team-share-back/public/user/update', data, headers)
+      axios.post('http://95.142.160.243/team-share-back/public/user/update', data, headers)
         .then((response) => {
           console.log(response);
         })

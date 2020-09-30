@@ -13,7 +13,7 @@ const Home = ({ token }) => (
 
       <div className="welcome">
         <h1 className="welcome-title">Bienvenue sur Team-Share !</h1>
-        <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France.</p>
+        <p className="welcome-subtitle">Plateforme d'appel à projets collaboratifs en France.</p>
 
         <div className="welcome-buttons">
           {token.length > 3 && <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>}

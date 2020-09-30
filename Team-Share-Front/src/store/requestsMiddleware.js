@@ -11,7 +11,7 @@ const requestsMiddleware = store => next => (action) => {
         response: 1,
         requestId: state.requestId,
       }
-      axios.post('https:localhost:8000/request/response', data)
+      axios.post('http://95.142.160.243/team-share-back/public/request/response', data)
         .then((response) => {
           console.log(response);
         })

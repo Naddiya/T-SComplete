@@ -18,7 +18,7 @@ const NavBar = ({ token }) => {
     <div className="navbar">
       <div>
         <NavLink to="/" exact>
-          <img className="navbar-logo" alt="logo" src="#" />
+          <img className="navbar-logo" alt="logo" src="src/assets/logo.png" />
         </NavLink>
       </div>
       <ul className="navbar-links">
