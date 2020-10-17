@@ -51,6 +51,8 @@ class FollowController extends AbstractController
                 // On met à jour le champ nbLike du projet + flush
                 $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike'];
                 $project->setNbLike($nbLike);
+                $entityManager->persist($follow);
+                $entityManager->persist($project);
                 $entityManager->flush();
 
                 if ($follow->getFollow()) {
@@ -70,9 +72,9 @@ class FollowController extends AbstractController
         $entityManager->persist($newFollow); // preparer à envoyer la requete
         $entityManager->flush(); // envoyer la requete
         $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike']; // incrémenter les likes
-        $project->setNbLike($nbLike); // 
-        $entityManager->persist($project);
-        $entityManager->flush();
+        $project->setNbLike($nbLike); // definir le nombre de like
+        $entityManager->persist($project); // preparer le projet qui est folowé avec ses likes 
+        $entityManager->flush(); // envoyer la requete
 
         return new JsonResponse(["type" => "success", "message" => "Un nouveau like a été ajouté au projet"]);
     }

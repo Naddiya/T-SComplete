@@ -40,6 +40,7 @@ const NavBar = ({ token }) => {
         <li className="navbar-link">
           {token.length > 3 && <DisconnectModal className="button-link-connect" />}
         </li>
+        
       </ul>
 
     </div>

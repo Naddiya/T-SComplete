@@ -141,4 +141,26 @@ class UserController extends AbstractController
 
         return new JsonResponse(["type" => "success", "message" => "L'utilisateur a été modifié"]);
     }
+
+     /**
+     * @Route("/projectuser", name="_projectuser", methods={"GET", "POST"})
+     */
+    public function projectuser(Request $request, UserRepository $userRepository)
+    {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+        // récupération de l'utilisateur à partir du token envoyé par le front 
+        $currentUser = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+        //dans le cas ou on ne trouve pas d'utilisateur on renvoi un message d'erreur 
+        if (!$currentUser) {
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
+        }
+        $response = new JsonResponse($currentUser->getProjects());
+ 
+        return $response;
+
+    }
 }

@@ -9,20 +9,20 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Composant
 const Projects = ({ image, title, tags, description, nbLike }) => (
-    <Item>
-      <Item.Image src={image} />
-      <Item.Content>
-        <Item.Header as='a'>{title}</Item.Header>
-        <Item.Description>{description}</Item.Description>
-        <Item.Extra>
-          <Label>{console.log(tags)}</Label>
-          <a>
-            <Icon name='heart' />
-            {nbLike} likes
+  <Item>
+    <Item.Image src={image} />
+    <Item.Content>
+      <Item.Header as='a'>{title}</Item.Header>
+      <Item.Description>{description}</Item.Description>
+      <Item.Extra>
+        <Label>{console.log(tags)}</Label>
+        <a>
+          <Icon name='heart' />
+          {nbLike} likes
         </a>
-        </Item.Extra>
-      </Item.Content>
-    </Item>
+      </Item.Extra>
+    </Item.Content>
+  </Item>
 );
 
 // == Export
