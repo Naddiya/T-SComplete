@@ -1,0 +1,25 @@
+@import 'src/styles/_vars.scss';
+
+.notfound {
+    display:block;
+    text-align:center;
+    &-image {
+        border-radius:15px;
+        height:59vh;
+    }
+    &-link{
+        text-align:center;
+        width:15%;
+        color:Black;
+        border: solid black 2px;
+        margin: 2rem auto;
+        font-size:2rem;
+    }
+    &-link:hover{
+        background-color:black;
+        color:grey;       
+    }
+}
+
+
+

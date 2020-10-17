@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 
 
 // import Components
-
+import "./notfound.scss";
 
 // this Component
 const NotFound = () => (
-    
-    <div classname="container w-75">
-                <h1 className="text-center m-3 text-dark">
-                    Bravo tu as trouvé la page 404 !!!!
-                    <img src="https://media.giphy.com/media/E4LWtyQ9KiToA/giphy.gif" />
-                </h1>
-    <Link to="/">
-      <h1>Go Home</h1>
+
+  <div className="notfound">
+    <h1 className="notfound-text">
+      Congratulations !  You found the 404  !!!!
+    </h1>
+    <img className='notfound-image' alt="Leonardo Dicaprio vous fellicite d'avoir trouvé la page 404" src="https://media.giphy.com/media/E4LWtyQ9KiToA/giphy.gif" />
+
+    <Link content="Back Home"to="/">
+      <p className="notfound-link">Back Home</p>
     </Link>
   </div>
 );

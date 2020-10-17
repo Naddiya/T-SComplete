@@ -68,19 +68,19 @@ class Page extends React.Component {
   render() {
     return (
       <>
-          <Route path="/" exact component={Home} />
-          <Route path="/" exact render={() => (
-            <HomeProjects projects={this.state.projects} />
-          )} />
-  
-          <Route path="/" exact component={Team} />
-          <Route path="/profile" render={() => (
-            <Profile
-              projects={this.state.projects}
-              technos={this.state.technos}
-              skills={this.state.skills}
-            />
-          )} />
+        <Route path="/" exact component={Home} />
+        <Route path="/" exact render={() => (
+          <HomeProjects projects={this.state.projects} />
+        )} />
+
+        <Route path="/" exact component={Team} />
+        <Route path="/profile" render={() => (
+          <Profile
+            projects={this.state.projects}
+            technos={this.state.technos}
+            skills={this.state.skills}
+          />
+        )} />
         <Route path="/projects" render={() => (
           <Projects
             projects={this.state.projects}
@@ -93,10 +93,10 @@ class Page extends React.Component {
           <ProjectCreation />
         )} />
         <Route path="/project-detail/:id" component={ProjectDetail} />
-        <Route path="/legal-mentions" render={() => (
-          <LegalMentions />
-        )} />
-        <Route path="*" component={NotFound} />
+        <Route path="/legal-mentions" component={LegalMentions} />
+        <Route path="/notfound" component={NotFound} />
+        <Redirect from='*' to='/notfound' />
+
       </>
     )
   };
