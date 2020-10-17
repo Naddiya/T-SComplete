@@ -21,16 +21,7 @@ const Profile = (
     }) => {
 
     const state = store.getState();
-    axios.post('http://95.142.160.243/team-share-back/public/follow/projectuser', data)
-    .then((response) => {
-        console.log(response.data);
-        Profile.projects = response.data
-
-    })
-    .catch((error) => {
-        console.log(error);
-        console.log(data);
-    });
+        
     const checkProject = () => {
         const data = {
             token: state.token,
