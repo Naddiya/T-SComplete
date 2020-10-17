@@ -29,9 +29,8 @@
     font-weight:500;
     font-family: &font-slab;
     &-menu{
+      min-width: 150px;
       color: $eerie-black;
-      border: solid grey 1px;
-      border-radius: 5px;
       padding: 0.5em;
       margin-right: 1rem;
 

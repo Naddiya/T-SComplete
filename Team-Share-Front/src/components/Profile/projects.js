@@ -20,15 +20,11 @@ const Projects = ({ image, title, tags, description, nbLike }) => (
         <Label>{console.log(tags, state.isPersonal)}</Label>
         <Icon name='heart' />
         {isNaN(parseInt(nbLike)) ? 0 : nbLike} likes
-        {store.getState().projectsUser.find(                                                               element =>
-
+        {store.getState().projectsUser.find(element =>
           element.title == title) == undefined ? state.isPersonal = 'none' : state.isPersonal = 'block'
-
         }
-
-
       </Item.Extra>
-      <Button basic color='red' style={{ display: state.isPersonal }} >Supprimer</Button>
+      <Button floated='right' basic color='red' style={{ display: state.isPersonal }} >Supprimer</Button>
     </Item.Content>
   </Item>
 );

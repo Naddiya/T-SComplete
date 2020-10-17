@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 // == Import : local
@@ -13,7 +13,7 @@ import ProjectDetail from 'src/containers/ProjectDetail';
 // import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
-
+import NotFound from 'src/components/Page/NotFound';
 
 // == Composant
 class Page extends React.Component {
@@ -68,18 +68,19 @@ class Page extends React.Component {
   render() {
     return (
       <>
-        <Route path="/" exact component={Home} />
-        <Route path="/" exact render={() => (
-          <HomeProjects projects={this.state.projects} />
-        )} />
-        <Route path="/" exact component={Team} />
-        <Route path="/profile" render={() => (
-          <Profile
-            projects={this.state.projects}
-            technos={this.state.technos}
-            skills={this.state.skills}
-          />
-        )} />
+          <Route path="/" exact component={Home} />
+          <Route path="/" exact render={() => (
+            <HomeProjects projects={this.state.projects} />
+          )} />
+  
+          <Route path="/" exact component={Team} />
+          <Route path="/profile" render={() => (
+            <Profile
+              projects={this.state.projects}
+              technos={this.state.technos}
+              skills={this.state.skills}
+            />
+          )} />
         <Route path="/projects" render={() => (
           <Projects
             projects={this.state.projects}
@@ -95,7 +96,7 @@ class Page extends React.Component {
         <Route path="/legal-mentions" render={() => (
           <LegalMentions />
         )} />
-        {/* <Route component={Error} /> */}
+        <Route path="*" component={NotFound} />
       </>
     )
   };
