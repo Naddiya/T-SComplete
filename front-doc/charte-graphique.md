@@ -25,7 +25,7 @@ Polices Google Fonts :
 
 - Montserrat
 - Roboto
-- Proxima Nova
+
 
 ## 3 - Logo 
 
@@ -37,15 +37,11 @@ Librairie UI : Semantic-ui
 
 CSS : React-css / Semantic-ui-css / Custom CSS
 
-Animations changement page : Swup.js
-
 ESLint
 
 React-modal : https://www.npmjs.com/package/react-modal
 
 React-dates : https://www.npmjs.com/package/react-dates
-
-React-accordion : https://github.com/springload/react-accessible-accordion
 
 Webpack / Babel
 

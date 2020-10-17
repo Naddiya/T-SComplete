@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Follow;
 use App\Entity\Project;
 use App\Repository\TagRepository;
+use App\Repository\FollowRepository;
 use App\Repository\UserRepository;
 use App\Repository\SkillRepository;
 use App\Repository\StatutRepository;
@@ -35,7 +37,7 @@ class ProjectController extends AbstractController
         return $response;
     }
 
-        /**
+    /**
      * @Route("/index/title", name="_index_title", methods={"GET"})
      */
     public function indexByTitle(ProjectRepository $projetcRepository)
@@ -63,7 +65,7 @@ class ProjectController extends AbstractController
         return $response;
     }
 
-     /**
+    /**
      * @Route("/search/{title}", name="_search", methods={"GET"})
      */
     public function indexBySearchTitle($title, ProjectRepository $projetcRepository)
@@ -90,7 +92,7 @@ class ProjectController extends AbstractController
 
         return $response;
     }
-    
+
     /**
      * @Route("/new", name="_new", methods={"POST"})
      */
@@ -103,7 +105,7 @@ class ProjectController extends AbstractController
         $jsonContentArray = json_decode($jsonContent, true);
 
         // Crée un nouveau projet vide
-        $newProjectObject = New Project;
+        $newProjectObject = new Project;
 
         // Hydrate le nouveau projet en fonction du tableau
         $newProjectObject->setTitle($jsonContentArray['title']);
@@ -120,20 +122,20 @@ class ProjectController extends AbstractController
 
         // Ajout des tags
         foreach ($jsonContentArray['tags'] as $jsonTag) {
-          $dbTag = $tagRepository->findOneBy(['name' => $jsonTag]);
-          $newProjectObject->addTag($dbTag);
+            $dbTag = $tagRepository->findOneBy(['name' => $jsonTag]);
+            $newProjectObject->addTag($dbTag);
         }
 
         // Ajout des technos
         foreach ($jsonContentArray['technos'] as $jsonTechno) {
-          $dbTechno = $technoRepository->findOneBy(['name' => $jsonTechno]);
-          $newProjectObject->addTechno($dbTechno);
+            $dbTechno = $technoRepository->findOneBy(['name' => $jsonTechno]);
+            $newProjectObject->addTechno($dbTechno);
         }
 
         // Ajout des skills
         foreach ($jsonContentArray['skills'] as $jsonSkill) {
-          $dbSkill = $skillRepository->findOneBy(['name' => $jsonSkill]);
-          $newProjectObject->addSkill($dbSkill);
+            $dbSkill = $skillRepository->findOneBy(['name' => $jsonSkill]);
+            $newProjectObject->addSkill($dbSkill);
         }
 
         // Ajout de l'utilisateur
@@ -149,5 +151,45 @@ class ProjectController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse(["type" => "success", "message" => "Le projet a bien été ajouté"]);
+    }
+    /**
+     * @Route("/checklikestate", name="_statuslike", methods={"POST"})
+     */
+    public function checklikestate(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, FollowRepository $followRepository)
+    {
+
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+
+        // Récupère le user qui crée la requête
+        $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+
+        // On renvoie un message d'erreur si l'utilisateur n'existe pas ou que le token n'a pas été trouvé dans la BDD
+        if (!$user) {
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
+        }
+
+        // Récupère le projet concerné par la requête
+        $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
+
+        // Pour chaques follows de l'utilisateur
+        foreach ($user->getFollows() as $follow) {
+            // On vérifie si il y en a un qui correspond au projet
+            if ($follow->getProject() === $project) {
+                if ($follow->getFollow()) {
+                    $state = 0;
+                } else {
+                    $state = 1;
+                }
+                // Crée une response au format json
+                $response = new JsonResponse($state);
+                return $response;
+            }
+        }
+        $response = new JsonResponse(0);
+        return $response;
     }
 }

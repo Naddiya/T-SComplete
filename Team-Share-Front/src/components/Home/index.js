@@ -17,11 +17,11 @@ const Home = ({ token }) => (
 
         <div className="welcome-buttons">
           {token.length > 3 && <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>}
-          {token === '' && <SubscribeModal className="welcome-buttons-button cta-button">Lancez-vous !</SubscribeModal>}
+          {token === '' && <SubscribeModal className="welcome-buttons-button cta-button">Nouveau Projet !</SubscribeModal>}
           <button className="welcome-buttons-button">En savoir plus</button>
         </div>
       </div>
-      <img className="team-pic" src="src/assets/krakenimages.jpg" title="Photo by krakenimages on Unsplash" alt="quatre personnes agissant en équipe" />
+      <img className="team-pic" src="src/assets/together.jpg" title="Photo by krakenimages on Unsplash" alt="quatre personnes agissant en équipe" />
     </main>
 
     <svg className="wave" viewBox="0 0 1170 126" xmlns="http://www.w3.org/2000/svg">

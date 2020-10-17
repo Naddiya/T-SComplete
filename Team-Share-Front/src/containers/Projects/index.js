@@ -12,7 +12,7 @@ import { changeFilter,
       } from 'src/store/reducer';
 
 
-/* === State (donnÃ©es) === */
+/* === State (donnees) === */
 const mapStateToProps = (state) => ({
   inputFilter: state.inputFilter,
 });

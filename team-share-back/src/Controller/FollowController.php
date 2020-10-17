@@ -33,7 +33,7 @@ class FollowController extends AbstractController
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
         // On renvoie un message d'erreur si l'utilisateur n'existe pas ou que le token n'a pas été trouvé dans la BDD
-        if (!$user){
+        if (!$user) {
             return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
         }
 
@@ -41,9 +41,9 @@ class FollowController extends AbstractController
         $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
 
         // Pour chaques follows de l'utilisateur
-        foreach ($user->getFollows() as $follow){
+        foreach ($user->getFollows() as $follow) {
             // On vérifie si il y en a un qui correspond au projet
-            if ($follow->getProject() === $project){
+            if ($follow->getProject() === $project) {
                 // Si oui on inverse le follow
                 $follow->setFollow(!$follow->getFollow());
                 // On flush le nouveau follow en base
@@ -53,7 +53,7 @@ class FollowController extends AbstractController
                 $project->setNbLike($nbLike);
                 $entityManager->flush();
 
-                if ($follow->getFollow()){
+                if ($follow->getFollow()) {
                     $state = "Un nouveau like a été ajouté au projet";
                 } else {
                     $state = "Le projet a été disliké";
@@ -63,14 +63,15 @@ class FollowController extends AbstractController
         }
 
         // Si aucune correspondance on crée un nouvel enregistrement pour le follow
-        $newFollow = new Follow;
-        $newFollow->setUser($user);
-        $newFollow->setProject($project);
-        $newFollow->setFollow(true);
-        $entityManager->persist($newFollow);
-        $entityManager->flush();
-        $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike'];
-        $project->setNbLike($nbLike);
+        $newFollow = new Follow; // creer un nouvel objet follow
+        $newFollow->setUser($user); // renseigner l'utilisateur qui follow
+        $newFollow->setProject($project); // renseigner le projet qui est followé
+        $newFollow->setFollow(true); // generer l'action de follow
+        $entityManager->persist($newFollow); // preparer à envoyer la requete
+        $entityManager->flush(); // envoyer la requete
+        $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike']; // incrémenter les likes
+        $project->setNbLike($nbLike); // 
+        $entityManager->persist($project);
         $entityManager->flush();
 
         return new JsonResponse(["type" => "success", "message" => "Un nouveau like a été ajouté au projet"]);
@@ -94,9 +95,9 @@ class FollowController extends AbstractController
         $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
 
         // Pour chaques follows de l'utilisateur
-        foreach ($user->getFollows() as $follow){
+        foreach ($user->getFollows() as $follow) {
             // On vérifie si il y en a un qui correspond au projet
-            if ($follow->getProject() === $project){
+            if ($follow->getProject() === $project) {
                 // Si oui on renvoie la valeur du follow (0 ou 1)
                 return new JsonResponse(["follow" => $follow->getFollow()]);
             }

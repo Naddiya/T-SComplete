@@ -20,14 +20,22 @@
     margin-top: .5rem;
   }
 
-  &-link {
+  &-link{
     z-index:2000;
-    padding: 1rem;
+    // padding: 1rem;
     color: $eerie-black;
     font-size: 1.4em;
-    margin-right: 1rem;
+    margin: 1rem;
     font-weight:500;
     font-family: &font-slab;
+    &-menu{
+      color: $eerie-black;
+      border: solid grey 1px;
+      border-radius: 5px;
+      padding: 0.5em;
+      margin-right: 1rem;
+
+    }
   }
 }
 

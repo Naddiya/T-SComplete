@@ -23,10 +23,13 @@ const NavBar = ({ token }) => {
       </div>
       <ul className="navbar-links">
         <li>
-          <NavLink to="/projects" className="navbar-link">Projets</NavLink>
+          {token.length > 3 && <NavLink to="/profile" className="navbar-link-menu">Mon Profil</NavLink>}
         </li>
         <li>
-          {token.length > 3 && <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>}
+          <NavLink to="/projects" className="navbar-link-menu">Tous les projets</NavLink>
+        </li>
+        <li>
+          {token.length > 3 && <NavLink to="/ProjectsCreation" className="navbar-link-menu">Créer un Projet</NavLink>}
         </li>
         <li>
           {token === "" && <LoginModal className="button-link-connect" />}
