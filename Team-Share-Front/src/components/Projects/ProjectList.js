@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
-import { Redirect } from 'react-router-dom';
 import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';

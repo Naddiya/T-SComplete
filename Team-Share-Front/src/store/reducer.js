@@ -42,6 +42,7 @@ const initialState = {
   technos: [''],
   skills: [''],
   projects: [''],
+  projectsUser:[]
   // projects: projectsData.items,
 };
 
@@ -272,6 +273,7 @@ const reducer = (state = initialState, action = {}) => {
         photo: action.value.photo,
         skills: action.value.skills,
         technos: action.value.technos,
+        projectsUser:  action.value.projects,
       };
       /* === Projects Filter ACTIONS === */
       case CHANGE_FILTER:

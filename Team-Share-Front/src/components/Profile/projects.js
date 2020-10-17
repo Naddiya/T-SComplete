@@ -3,9 +3,11 @@ import React from 'react';
 import { Button, Icon, Image, Item, Label } from 'semantic-ui-react';
 import { MdPerson } from 'react-icons';
 import 'semantic-ui-css/semantic.min.css';
-
+import store from 'src/store';
 // == Import : local
-
+const state = {
+  isPersonal: 'none'
+}
 
 // == Composant
 const Projects = ({ image, title, tags, description, nbLike }) => (
@@ -15,12 +17,18 @@ const Projects = ({ image, title, tags, description, nbLike }) => (
       <Item.Header as='a'>{title}</Item.Header>
       <Item.Description>{description}</Item.Description>
       <Item.Extra>
-        <Label>{console.log(tags)}</Label>
-        <a>
-          <Icon name='heart' />
-          {nbLike} likes
-        </a>
+        <Label>{console.log(tags, state.isPersonal)}</Label>
+        <Icon name='heart' />
+        {isNaN(parseInt(nbLike)) ? 0 : nbLike} likes
+        {store.getState().projectsUser.find(                                                               element =>
+
+          element.title == title) == undefined ? state.isPersonal = 'none' : state.isPersonal = 'block'
+
+        }
+
+
       </Item.Extra>
+      <Button basic color='red' style={{ display: state.isPersonal }} >Supprimer</Button>
     </Item.Content>
   </Item>
 );
@@ -29,6 +37,7 @@ const Projects = ({ image, title, tags, description, nbLike }) => (
 export default Projects;
 
 
+// si paseInt de nblike n'est pas a number alors 0 sinon le nombre de like */
 // <Card fluid>
 // <Image src={image} wrapped ui={false} />
 // <Card.Content>

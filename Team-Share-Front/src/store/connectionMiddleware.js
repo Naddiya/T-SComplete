@@ -42,6 +42,7 @@ const connectionMiddleware = store => next => (action) => {
                     let token = response.data.token;
                     console.log(token);
                     store.dispatch(changeToken(token));
+                    
 
                     const params = {
                         token,
@@ -52,6 +53,7 @@ const connectionMiddleware = store => next => (action) => {
                         .then((response) => {
                             const persoInfos = response.data[0];
                             console.log(persoInfos);
+                            console.log(persoInfos.projects);
                             store.dispatch(giveProfileInfos(persoInfos));
                         })
                         .catch((error) => {
