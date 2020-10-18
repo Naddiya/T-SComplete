@@ -3,18 +3,19 @@
 
 .mentions {
   margin-top: 4rem;
-  height: 100%;
   padding:2rem;
-  height: 100vh;
+  height: 63vh;
 
   & h1 {
       font-size: 2.5em;
       color: $dark-cerulean;
+      text-align:center;
   }
 
   & p {
-    margin-top: 4rem;
-    font-size: 1.5em;
+    width: 70%;
+    margin: 2rem auto ;
+    font-size: 1em;
   }
 }
 
@@ -22,7 +23,7 @@
   .mentions {
     margin-top: 0;
     padding: 2.5rem;
-    height: 100%;
+    height: 84vh;
   
     & h1 {
         font-size: 1.5em;

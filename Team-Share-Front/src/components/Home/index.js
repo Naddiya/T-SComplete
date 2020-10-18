@@ -13,12 +13,14 @@ const Home = ({ token }) => (
 
       <div className="welcome">
         <h1 className="welcome-title">Vous êtes sur Team-Share</h1>
-        <p className="welcome-subtitle">Plateforme d'appel à projets collaboratifs.</p>
+        <p className="welcome-subtitle">Team-Share est une plate-forme d'appel à projets collaboratifs. Si vous cherchez une équipe pour monter votre projet web, vous êtes bien tombé. Vous pouvez vous inscrire, vous connecter, créer un projet et liker les projets qui vous plaisent. Enjoy!</p>
 
         <div className="welcome-buttons">
           {token.length > 3 && <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>}
           {token === '' && <SubscribeModal className="welcome-buttons-button cta-button">Nouveau Projet !</SubscribeModal>}
+          <NavLink to="/legalmentions">
           <button className="welcome-buttons-button">En savoir plus</button>
+          </NavLink>
         </div>
       </div>
       <img className="team-pic" src="src/assets/together.jpg" title="Photo by krakenimages on Unsplash" alt="quatre personnes agissant en équipe" />

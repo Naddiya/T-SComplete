@@ -3,7 +3,7 @@
 
 
 .main-container {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-roboto;
     display: flex;
     width: 70%;
     margin: auto;
@@ -14,7 +14,7 @@
 
 .welcome {
     margin-top:4rem;
-    text-align: left;
+    text-align: center;
     color: $eerie-black;
 
     &-title {
@@ -26,7 +26,8 @@
 
     &-subtitle {
         font-size: 20px;
-        width: 60%;
+        // width: 60%;
+        text-align:left;
         padding: .5rem 1.5rem;
     }
 
@@ -56,8 +57,9 @@
 .team-pic {
     width: 40%;
     height:40%;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 0 2em grey;
+    align-self: center;
 
 }
 
@@ -99,8 +101,8 @@
         }
     }
     .team-pic {
-        float:left;
-    }
+        display:none;
+        }
 }
 
 @media (max-width: 462px) {

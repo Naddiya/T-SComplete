@@ -15,7 +15,7 @@ const Burger = () => {
 
   return (
     <Menu right>
-      <NavLink className="menu-item" to="#">
+      {/* <NavLink className="menu-item" to="/login">
         Se connecter
       </NavLink>
       <NavLink className="menu-item" to="#">
@@ -23,25 +23,25 @@ const Burger = () => {
       </NavLink>
       <Divider />
       <NavLink className="menu-item" to="/profil" exact>
-          Ton profil
-      </NavLink>
+        Ton profil
+      </NavLink> */}
       <Divider />
       <NavLink className="menu-item" to="/projects" exact>
-          Liste des projets
+        Liste des projets
       </NavLink>
       <NavLink className="menu-item" to="/project-creation" exact>
-          Creer un projet
+        Creer un projet
       </NavLink>
       <Divider />
-      <NavLink className="menu-item" to="/about" exact>
+      {/* <NavLink className="menu-item" to="/team" exact>
           A propos
-      </NavLink>
-      <NavLink className="menu-item" to="/legal-mentions" exact>
-          Mentions légales
+      </NavLink> */}
+      <NavLink className="menu-item" to="/legalmentions" exact>
+        Mentions légales
       </NavLink>
       <Divider />
-      <NavLink className="menu-item" to="/Logout" exact>
-          Logout
+      <NavLink className="menu-item" to="/" exact>
+        Logout
       </NavLink>
     </Menu>
   );
