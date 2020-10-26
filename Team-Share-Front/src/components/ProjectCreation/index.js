@@ -4,8 +4,10 @@ import { Button, Input, Select, Divider, Form, TextArea, Dropdown, Checkbox } fr
 // import { IoIosFolderOpen } from 'react-icons/io';
 import PropTypes from 'prop-types';
 
+
 // == Import : local
 import './projectcreation.scss';
+
 
 const technos = [
     { key: 'af', value: 'HTML', text: 'HTML' },
@@ -19,6 +21,7 @@ const technos = [
 const skillsList = [
     { key: 'af', value: 'Graphisme', text: 'Graphisme' },
     { key: 'ax', value: 'Big Data', text: 'Big Data' },
+
 ]
 
 const collabs = [
@@ -31,6 +34,8 @@ const collabs = [
 const projType = [
     { key: 'cc', value: 'Art', text: 'Art' },
     { key: 'cg', value: 'Musique', text: 'Musique' },
+    { key: 'bl', value: 'Blog', text: 'Blog' },
+
 ]
 
 // == Composant
@@ -47,8 +52,8 @@ const ProjectCreation = (
         changeSkills,
         sendSubmit,
     }
-    ) => {
-    
+) => {
+
     const handleChangeProjectName = (e) => {
         const { value } = e.target;
         changeInputProjectName(value);
@@ -100,55 +105,55 @@ const ProjectCreation = (
     return (
         <div className="project">
             <Form onSubmit={handleSubmit}>
-            <div className="project-heading">
-                <h1 className="project-heading-title">Ton super projet</h1>
-            <Divider />
-                <Form.Input value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
-            <Divider />
-            </div>
+                <div className="project-heading">
+                    <h1 className="project-heading-title">Ton super projet</h1>
+                    <Divider />
+                    <Form.Input value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
+                    <Divider />
+                </div>
 
 
-            <div className="project-intro">
-                <div className="project-intro-inputs">
-                    <h3 className="input-title">Date de début souhaitée</h3>
-                        <Form.Input fluid onChange={handleChangeStartDate} type="text" />
-                    <h3 className="input-title">Date de fin prévue</h3>
-                        <Form.Input fluid onChange={handleChangeEndDate} type="text" />
-                    <h3 className="input-title">Type de projet</h3>
+                <div className="project-intro">
+                    <div className="project-intro-inputs">
+                        <h3 className="input-title">Date de début souhaitée</h3>
+                        <Form.Input fluid onChange={handleChangeStartDate} type="date" />
+                        <h3 className="input-title">Date de fin prévue</h3>
+                        <Form.Input fluid onChange={handleChangeEndDate} type="date" />
+                        <h3 className="input-title">Type de projet</h3>
                         <Dropdown fluid multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
-                    <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
-                        <Select fluid onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs}  />
-                    <h3 className="input-title">Description en quelques mots</h3>
-                        <Form.Input fluid  onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
+                        <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
+                        <Select fluid onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
+                        <h3 className="input-title">Description en quelques mots</h3>
+                        <Form.Input fluid onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
+                    </div>
+
+                    <img className="teamPic" src="https://via.placeholder.com/400" />
                 </div>
 
-                <img className="teamPic" src="http://92.243.10.99/pics/teamPic.png" />
-            </div>
-
-            <Divider />
-            <div className="project-filter">
-                <div className="technos">
-                     <h3 className="project-technos">Les technologies</h3>
-                            <Dropdown fluid multiple selection onChange={handleChangeTechnos} placeholder='Choisir' options={technos} />
-                </div>
-                <div className="skills">
-                     <h3 className="project-skills">Compétences Subsidiaires</h3>
-                        <Dropdown fluid multiple selection onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
+                <Divider />
+                <div className="project-filter">
+                    <div className="technos">
+                        <h3 className="project-technos">Les technologies</h3>
+                        <Dropdown fluid multiple selection onChange={handleChangeTechnos} placeholder='Choisir' options={technos} />
+                    </div>
+                    <div className="skills">
+                        <h3 className="project-skills">Compétences Subsidiaires</h3>
+                        <Dropdown fluid multiple selection onChange={handleChangeSkills} placeholder='Choisir' options={skillsList
                         } />
+                    </div>
                 </div>
-            </div>  
-            <Divider />
+                <Divider />
 
                 <div className="project-description">
                     <h2 className="project-title">Décris ton projet</h2>
-                        <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
-                </div> 
+                    <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
+                </div>
 
-            <Divider />
-            <div className="project-links-validation">
-                <Checkbox label='I agree to Terms and Conditions' />
-            </div>
-            <Button className="submit" color="blue">Envoyer</Button>
+                <Divider />
+                <div className="project-links-validation">
+                    <Checkbox label='I agree to Terms and Conditions' />
+                </div>
+                <Button className="submit" color="blue">Envoyer</Button>
             </Form>
         </div>
     );

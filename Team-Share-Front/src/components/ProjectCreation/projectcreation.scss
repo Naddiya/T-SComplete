@@ -1,13 +1,14 @@
 @import 'src/styles/_vars';
 
 .project {
-    width: 70%;
+    width: 60vw;
     margin: 4rem auto;
 
 
     & img {
         border-radius:15px;
         box-shadow: 0 0 2rem gray;
+        width: 40%;
     }
 
     &-title, &-presentation, &-team, &-description {
@@ -49,7 +50,7 @@
     &-filter {
         padding: 3rem;
         display:flex;
-        justify-content:space-around;
+        justify-content:space-between;
         margin:auto;
         & h3 {
            text-align:center;

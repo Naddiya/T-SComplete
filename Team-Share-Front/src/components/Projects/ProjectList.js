@@ -29,6 +29,7 @@ const ProjectList = ({
     project: id,
   }
 
+  // checking de like state
   const checkLike = () => {
     const data = {
       token: state.token,
@@ -37,46 +38,46 @@ const ProjectList = ({
 
     axios.post('http://95.142.160.243/team-share-back/public/follow/state', data)
       .then((response) => {
-        console.log(response.data.follow);
+        // console.log(response.data.follow);
         if ("false" == response.data.follow || 0 == response.data.follow) {
-          console.log("false")
-          return true
+          // console.log("false")
+          return false
         }
         if (1 == response.data.follow) {
-          console.log("true")
-          return false
+          // console.log("true")
+          return true
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         console.log(data);
       });
 
   }
-
+  // handling the like/dislike button
   const handleClickLike = (event) => {
     axios.post('http://95.142.160.243/team-share-back/public/follow/add', data)
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data.message);
-        console.log("Un nouveau like a été ajouté au projet" == response.data.message);
-        console.log("Le projet a été disliké" == response.data.message)
+        // console.log(response.data);
+        // console.log(response.data.message);
+        // console.log("Un nouveau like a été ajouté au projet" == response.data.message);
+        // console.log("Le projet a été disliké" == response.data.message)
         if ("Un nouveau like a été ajouté au projet" == response.data.message) {
           document.getElementById("likeNumber-" + id).innerHTML = nbLike++;
         }
         if ("Le projet a été disliké" == response.data.message) {
           document.getElementById("likeNumber-" + id).innerHTML = nbLike--;
         }
-       var text =  document.getElementById('LD-'+id).innerHTML 
-       if("Like"==text){
-        document.getElementById('LD-'+id).innerHTML ="Dislike"
-       }else{
-        document.getElementById('LD-'+id).innerHTML ="Like"
-       }
+        let text = document.getElementById('LD-' + id).innerHTML
+        if ("Dislike" == text) {
+          document.getElementById('LD-' + id).innerHTML = "Like"
+        } if ("Like" == text) {
+          document.getElementById('LD-' + id).innerHTML = "Dislike"
+        }
       })
       .catch((error) => {
         console.log(error);
-        console.log(data);
+        // console.log(data);
       });
   }
 
@@ -89,10 +90,11 @@ const ProjectList = ({
           as={NavLink}
           to={`project-detail/${id}`}>{title}
         </Item.Header>
-        {state.token.length != 0 ? 
-        <Button onClick={handleClickLike} color="grey" className="item-follow"><IoIosAddCircle size="15px" /><span id={'LD-'+id}>{checkLike() ? 'Dislike' : 'Like'}</span></Button>
-          : ''}
-
+        {state.token.length != 0 ?
+          <Button onClick={handleClickLike} color="grey" className="item-follow">
+            <IoIosAddCircle size="15px" />
+            <span id={'LD-' + id}>{checkLike() ? 'Dislike' : 'Like'}</span>
+          </Button> : ''}
         <Item.Extra>
 
           <Label>{createdAt.date}</Label>
