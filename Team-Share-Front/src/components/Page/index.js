@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route , Switch,  Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 // == Import : local
@@ -13,6 +13,7 @@ import ProjectDetail from 'src/containers/ProjectDetail';
 // import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
+import NotFound from 'src/components/Page/NotFound'
 
 
 // == Composant
@@ -68,6 +69,9 @@ class Page extends React.Component {
   render() {
     return (
       <>
+      <Switch>
+        
+      </Switch>
         <Route path="/" exact component={Home} />
         <Route path="/" exact render={() => (
           <HomeProjects projects={this.state.projects} />
@@ -95,6 +99,8 @@ class Page extends React.Component {
         <Route path="/legalmentions" render={() => (
           <LegalMentions />
         )} />
+        <Route path="/notfound" component={NotFound} />
+        <Redirect to ="/notfound" />
         {/* <Route component={Error} /> */}
       </>
     )
